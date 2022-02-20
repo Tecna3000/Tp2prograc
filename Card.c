@@ -50,7 +50,30 @@ Card_makeFromPip(char const pip[]){
     assert(suit);
     return {.rank = rank, .suit= suit}
 }
-char Card_rankPip(Card card){}
-char Card_suitPip(Card card){}
-bool Card_pipEquals(Card card, char const pip[]){}
-void Card_printPip(Card card,FILE * file){}
+char Card_rankPip(Card card){
+    for(int rank =0; rank<sizeof(RANK_COUNT); rank++){
+        if(rank == card.rank{
+            return RANK_COUNT[rank];
+        }
+     }
+    return -1;
+}
+char Card_suitPip(Card card){
+    for(int suit; suit< sizeof(SUIT_COUNT); suit++){
+        if(suit == card.suit){
+            return RANK_COUNT[suit];
+        }
+    return -1;
+    }
+}
+bool Card_pipEquals(Card card, char const pip[]){
+    int rank = Card_rankFromPip( pip[0]);
+    int suit = Card_suitFromPip(pip[1]);
+
+    return rank == Card_rankPip(card) && suit ==Card_suitPip(card);
+}
+
+void Card_printPip(Card card,FILE * file){
+    print(char( Card_rankPip(card) + Card_suitPip(card)));
+
+}
